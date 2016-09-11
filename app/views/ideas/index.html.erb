@@ -4,6 +4,6 @@
   <% @ideas.each do |idea| %>
     <li><%= link_to idea.title, user_idea_path(current_user, idea.id) %></li>
     <%= link_to "Delete this Idea", user_idea_path(current_user, idea.id), method: :delete %>
-    <%= link_to "Edit this Idea", edit_user_idea_path(current_user, idea.id), method: :delete %>
+    <%= link_to "Edit this Idea", edit_user_idea_path(current_user, idea.id) %>
   <% end %>
 </ul>

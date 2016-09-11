@@ -10,6 +10,11 @@
 
   <body>
     <div>
+      <ul>
+        <li><%= link_to "Home", current_user %></li>
+      </ul>
+    </div>
+    <div>
       <% if current_user %>
         <%= link_to "Logout", logout_path, method: :delete %>
       <% else %>

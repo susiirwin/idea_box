@@ -1,0 +1,10 @@
+<h2>You have a GREAT idea: <%= @idea.title %></h2>
+
+
+<ul>
+  <li>Text: <%= @idea.thought %></li>
+  <li>Topic: <%# @idea.category.topic %></li>
+</ul>
+
+<%= link_to "Create Idea", new_user_idea_path(current_user) %>
+<%= link_to "View all Ideas", user_ideas_path(current_user.id) %>

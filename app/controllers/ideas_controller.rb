@@ -21,7 +21,27 @@ class IdeasController < ApplicationController
   end
 
   def show
-    
+    @idea = Idea.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    @idea = Idea.find(params[:id])
+    if @idea.update(idea_params)
+      redirect_to user_ideas_path(current_user)
+    else
+      flash.now[:error] = @ideas.errors.full_messages.join(", ")
+      render :edit
+    end
+  end
+
+  def destroy
+    @idea = Idea.find(params[:id])
+    @idea.destroy
+    flash[:notice] = "You have removed that idea from the Idea Box."
+    redirect_to user_ideas_path(current_user)
   end
 
   private
