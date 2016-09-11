@@ -1,1 +1,12 @@
 <h1>Welcome, <%= current_user.name %>!</h1>
+
+<h2>It is great to see you here!</h2>
+
+<%= link_to "Create Idea", new_user_idea_path(current_user) %>
+<%= link_to "View all Ideas", user_ideas_path(current_user.id) %>
+
+<ul>
+  <li>Name: <%= current_user.name %></li>
+  <li>Username: <%= current_user.username %></li>
+  <li>Password Last Updated: <%= current_user.updated_at %></li>
+</ul>

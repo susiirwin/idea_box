@@ -1,0 +1,5 @@
+example_id                                                 | status | run_time        |
+---------------------------------------------------------- | ------ | --------------- |
+./spec/features/existing_user_can_create_idea_spec.rb[1:1] | failed | 0.02985 seconds |
+./spec/features/existing_user_can_login_spec.rb[1:1]       | passed | 0.03184 seconds |
+./spec/features/user_creates_a_login_spec.rb[1:1]          | passed | 0.21606 seconds |

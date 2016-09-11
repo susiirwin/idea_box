@@ -1,0 +1,13 @@
+<%= form_for([current_user, @idea]) do |f| %>
+  </p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  <p>
+  <p>
+    <%= f.label :thought %>
+    <%= f.text_field :thought %>
+  </p>
+  <p>
+    <%= f.submit "Make It Happen!" %>
+  </p>
+<% end %>
