@@ -1,6 +1,4 @@
 class Admin::CategoriesController < ApplicationController
-  before_action :set_users, only: [:update, :edit, :create, :new]
-  before_action :set_categories, only: [:update, :edit, :create, :new]
 
   def index
     @category = Category.all
@@ -12,10 +10,15 @@ class Admin::CategoriesController < ApplicationController
 
   def new
     @category = Category.new
+    @users = User.all
+    @categories = Category.all
   end
 
   def create
     @category = Category.new(category_params)
+    @users = User.all
+    @categories = Category.all
+
     if @category.save
       redirect_to admin_categories_path
     else
@@ -25,10 +28,15 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def edit
+    @users = User.all
+    @categories = Category.all
   end
 
   def update
     @category = Category.find(params[:id])
+    @users = User.all
+    @categories = Category.all
+
     if @category.update(category_params)
       redirect_to admin_idea_path(@category)
     else
@@ -47,13 +55,4 @@ class Admin::CategoriesController < ApplicationController
   def category_params
     params.require(:category).permit(:topic)
   end
-
-  def set_users
-    @users = User.all
-  end
-
-  def set_categories
-    @categories = Category.all
-  end
-
 end
