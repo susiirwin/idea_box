@@ -12,4 +12,12 @@ RSpec.feature "Existing user can login" do
     expect(page).to have_content("Welcome, Susi!")
 
   end
+
+  scenario "user without account cannot log in" do
+
+  end
+
+  scenario "user with account and wrong password cannot log in" do
+    
+  end
 end

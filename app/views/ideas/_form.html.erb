@@ -8,8 +8,8 @@
     <%= f.text_field :thought %>
   </p>
   <p>
-    <%#= form.label :topic %>
-    <%#= f.collection_select :topic, @categories, :id, :genre %>
+    <%= f.label :topic %>
+    <%= f.collection_select :category_id, @categories, :id, :topic %>
   </p>
   <p>
     <%= f.submit "Make It Happen!" %>
