@@ -1,3 +1,15 @@
 <h1>Create a New Category</h1>
 
-<%= render partial: "form" %>
+<%= form_for(@category, url: admin_categories_path) do |f| %>
+  <p>
+    <%= f.label :topic %>
+    <%= f.text_field :topic %>
+  </p>
+  <p>
+    <%= f.submit "Create Category" %>
+  </p>
+
+<% end %>
+
+<br>
+<%= link_to "See All Categories", admin_categories_path %>

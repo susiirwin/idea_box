@@ -15,8 +15,10 @@
       </ul>
     </div>
     <div>
-      <% if current_user %>
-        <%= link_to "Logout", logout_path, method: :delete %>
+      <% if current_admin? %>
+      <%= link_to "Categories", admin_categories_path %>
+      <% elsif current_user %>
+      <%= link_to "Logout", logout_path, method: :delete %>
       <% else %>
         <%= link_to "Login To IdeaBox", login_path %>
       <% end %>

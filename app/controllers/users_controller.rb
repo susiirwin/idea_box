@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
 
   def new
-    @user = User.new
+    if current_user
+      redirect_to current_user
+    else
+      @user = User.new
+    end
   end
 
   def create
@@ -24,4 +28,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :username, :password, :password_confirmation)
   end
+
 end

@@ -1,7 +1,8 @@
 class IdeasController < ApplicationController
 
   def new
-    @idea = Idea.new
+    @idea = current_user.ideas.new
+    @categories = Category.all
   end
 
   def index
@@ -11,6 +12,7 @@ class IdeasController < ApplicationController
   def create
     @categories = Category.all
     @idea = current_user.ideas.new(idea_params)
+    @idea.category_id = 1
     if @idea.save
       flash[:notice] = "Awesome idea has been created!"
       redirect_to user_ideas_path(current_user)
@@ -25,14 +27,16 @@ class IdeasController < ApplicationController
   end
 
   def edit
+    @idea = Idea.find(params[:id])
+    @categories = Category.all
   end
 
   def update
     @idea = Idea.find(params[:id])
+    @idea.category_id = 1
     if @idea.update(idea_params)
       redirect_to user_ideas_path(current_user)
     else
-      flash.now[:error] = @ideas.errors.full_messages.join(", ")
       render :edit
     end
   end
@@ -47,7 +51,7 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:title, :text)
+    params.require(:idea).permit(:title, :thought, :user_id)
 
   end
 end
