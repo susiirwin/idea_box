@@ -2,7 +2,9 @@
 
 <ul>
   <li>Thought: <%= @idea.thought %></li>
-  <li>Topic: <%# @idea.category.topic %></li>
+  <% if @idea.category %>
+    <li>Topic: <%= @idea.category.topic %></li>
+  <% end %>
 </ul>
 
 <%= link_to "Create Idea", new_user_idea_path(current_user) %>
