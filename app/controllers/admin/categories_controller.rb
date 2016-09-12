@@ -1,7 +1,7 @@
 class Admin::CategoriesController < ApplicationController
 
   def index
-    @category = Category.all
+    @categories = Category.all
     @user = current_user
   end
 
