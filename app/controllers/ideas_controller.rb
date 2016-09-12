@@ -10,7 +10,7 @@ class IdeasController < ApplicationController
   end
 
   def create
-    @categories = Category.all
+    # @categories = Category.all
     @idea = current_user.ideas.new(idea_params)
     if @idea.save
       flash[:notice] = "Awesome idea has been created!"
@@ -35,7 +35,7 @@ class IdeasController < ApplicationController
     if @idea.update(idea_params)
       redirect_to user_ideas_path(current_user)
     else
-      flash.now[:error] = @ideas.errors.full_messages.join(", ")
+      # flash.now[:error] = @ideas.errors.full_messages.join(", ")
       render :edit
     end
   end
@@ -50,7 +50,7 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:title, :thought, :user_id, :category_id)
+    params.require(:idea).permit(:title, :thought, :user_id)
 
   end
 end
