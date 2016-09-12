@@ -1,7 +1,8 @@
 class IdeasController < ApplicationController
 
   def new
-    @idea = Idea.new
+    @idea = current_user.ideas.new
+    @categories = Category.all
   end
 
   def index
@@ -25,6 +26,8 @@ class IdeasController < ApplicationController
   end
 
   def edit
+    @idea = Idea.find(params[:id])
+    @categories = Category.all
   end
 
   def update
@@ -47,7 +50,7 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:title, :text)
+    params.require(:idea).permit(:title, :thought, :user_id, :category_id)
 
   end
 end

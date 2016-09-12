@@ -2,6 +2,7 @@ class Admin::CategoriesController < ApplicationController
 
   def index
     @category = Category.all
+    @user = current_user
   end
 
   def show
@@ -16,8 +17,6 @@ class Admin::CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-    @users = User.all
-    @categories = Category.all
 
     if @category.save
       redirect_to admin_categories_path
